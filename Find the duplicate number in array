@@ -1,0 +1,17 @@
+#This is the python3 code for leetcode solution
+#In this we used the slow and fast pointer approach to solve the problem It is also called as tortoise and rabbit approach
+#For more details visit. https://www.geeksforgeeks.org/how-does-floyds-slow-and-fast-pointers-approach-work/
+#I think it should be helpful
+
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        ans = fast = slow = 0
+        while True:
+            slow = nums[slow]
+            fast = nums[nums[fast]]
+            if slow == fast:
+                break
+        while ans!=slow:
+            ans = nums[ans]
+            slow = nums[slow]
+        return ans
